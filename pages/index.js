@@ -1,10 +1,16 @@
+import Head from 'next/head'
 import React from 'react'
 
 const Index = () => {
   return (
-    <div>
-      Next.js 100
-    </div>
+    <>
+      <Head>
+        <title>Next.js 100</title>
+      </Head>
+      <div>
+        Next.js 100
+      </div>
+    </>
   )
 }
 
