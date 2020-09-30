@@ -1,0 +1,37 @@
+{
+  "theme_color": "#F0DA7E",
+  "background_color": "#333333",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Next.js 100",
+  "app_name": "Next.js 100",
+  "short_name": "Next.js 100",
+  "description": "Build a PWA with Next.js to achieve 100 lighthouse score",
+  "icons": [
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
