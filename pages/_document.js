@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={this.props.lang}>
+      <Html lang={this.props.lang || 'en'}>
         <Head />
         <body>
           <Main />
