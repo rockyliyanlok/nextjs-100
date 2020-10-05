@@ -4,7 +4,8 @@ class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     const { lang }  = ctx.req || {}
-    return { ...initialProps, lang }
+    const { headers } = ctx.req || {}
+    return { ...initialProps, lang, headers: JSON.stringify(headers) }
   }
 
   render() {
@@ -12,6 +13,7 @@ class MyDocument extends Document {
       <Html lang={this.props.lang || 'en'}>
         <Head />
         <body>
+          <div dangerouslySetInnerHTML={{__html: JSON.stringify(JSON.parse(this.props.headers), null, 2)}}/>
           <Main />
           <NextScript />
         </body>
