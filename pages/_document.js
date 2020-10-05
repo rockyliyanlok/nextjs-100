@@ -13,7 +13,10 @@ class MyDocument extends Document {
       <Html lang={this.props.lang || 'en'}>
         <Head />
         <body>
-          <div dangerouslySetInnerHTML={{__html: JSON.stringify(JSON.parse(this.props.headers), null, 2)}}/>
+          <pre dangerouslySetInnerHTML={{__html: JSON.stringify({
+            lang: this.props.lang,
+            headers: JSON.parse(this.props.headers)
+          }, null, 2)}}/>
           <Main />
           <NextScript />
         </body>
