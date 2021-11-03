@@ -11,7 +11,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: 'default-src \'self\'; img-src *; media-src *; script-src vitals.vercel-insights.com *.vercel.app'
+    value: 'default-src *; img-src *; media-src *; script-src vitals.vercel-insights.com *.vercel.app'
   },
   {
     key: 'X-XSS-Protection',
