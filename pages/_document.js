@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { getLangFromReq } from '../utils/fromReq'
+import { getCsp } from '../utils/csp'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -14,6 +15,8 @@ class MyDocument extends Document {
         <Head>
           <meta name="Description" content="Build a PWA with Next.js to achieve 100 lighthouse score."></meta>
           <meta name="theme-color" content="#317EFB"/>
+          <meta name="referrer" content={'strict-origin'} />
+          <meta httpEquiv="Content-Security-Policy" content={getCsp(NextScript.getInlineScriptSource(this.props))} />
 
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
