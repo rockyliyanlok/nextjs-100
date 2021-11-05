@@ -1,4 +1,5 @@
 const withPWA = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
 
 const headers = async () => {
   return [
@@ -24,7 +25,9 @@ const headers = async () => {
 
 module.exports = withPWA({
   pwa: {
-    dest: 'public'
+    dest: 'public',
+    runtimeCaching,
+    buildExcludes: [/middleware-manifest.json$/]
   },
   headers
 })
