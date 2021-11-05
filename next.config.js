@@ -1,34 +1,33 @@
 const withPWA = require('next-pwa')
- 
-const securityHeaders = [
-  {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff'
-  },
-  {
-    key: 'X-Frame-Options',
-    value: 'SAMEORIGIN'
-  },
-  {
-    key: 'Content-Security-Policy',
-    value: 'default-src \'self\''
-  },
-  {
-    key: 'X-XSS-Protection',
-    value: '1; mode=block'
-  }
-]
+const runtimeCaching = require('next-pwa/cache')
+
+const headers = async () => {
+  return [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'X-Content-Type-Options',
+          value: 'nosniff'
+        },
+        {
+          key: 'X-Frame-Options',
+          value: 'SAMEORIGIN'
+        },
+        {
+          key: 'X-XSS-Protection',
+          value: '1; mode=block'
+        }
+      ],
+    },
+  ]
+}
 
 module.exports = withPWA({
   pwa: {
-    dest: 'public'
+    dest: 'public',
+    runtimeCaching,
+    buildExcludes: [/middleware-manifest.json$/]
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ]
-  }
+  headers
 })
